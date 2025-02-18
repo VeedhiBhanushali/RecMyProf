@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Professor Analytics Dashboard</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="nav-left">
+                <a href="/" class="nav-logo">
+                    <span class="material-icons">school</span>
+                    Rec My Prof
+                </a>
+            </div>
+            <div class="nav-right">
+                <a href="/pref" class="nav-item">Personalize</a>
+                <a href="/dash" class="nav-item active">Analytics</a>
+                <a href="/" class="nav-item">Chat</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="page-header">
+            <h1>SJSU Professor Analytics</h1>
+            <p class="subtitle">Discover insights about teaching excellence at San José State University</p>
+        </div>
+        
+        {% if error %}
+        <div class="error-message animate-fade-in">
+            {{ error }}
+        </div>
+        {% else %}
+        <div class="stats-container animate-fade-in">
+            <div class="stat-card">
+                <h3>SJSU Teaching Excellence</h3>
+                <p>Average Rating: {{ "{:.2f}".format(stats.avg_rating) }}/5.0</p>
+                <p>Average Difficulty: {{ "{:.2f}".format(stats.avg_difficulty) }}/5.0</p>
+                <p>Average Would Take Again: {{ "{:.1f}".format(stats.avg_would_take_again) }}%</p>
+                <p>Total Professors: {{ stats.total_professors }}</p>
+            </div>
+
+            <div class="stat-card">
+                <h3>Academic Departments</h3>
+                {% for dept, count in stats.departments.items() %}
+                <p>{{ dept }}: {{ count }} professors</p>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="visualization-container animate-fade-in">
+            <div class="viz-card">
+                <h3>Professor Rating Distribution</h3>
+                <p class="viz-desc">How SJSU professors are rated across all departments</p>
+                {{ rating_dist | safe }}
+            </div>
+            
+            <div class="viz-card">
+                <h3>Department Performance</h3>
+                <p class="viz-desc">Compare teaching metrics across different departments</p>
+                {{ dept_comp | safe }}
+            </div>
+            
+            <div class="viz-card">
+                <h3>Metric Correlations</h3>
+                {{ corr_matrix | safe }}
+            </div>
+        </div>
+        {% endif %}
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>© 2024 Rec My Prof - Your AI-powered professor recommendation assistant</p>
+        </div>
+    </footer>
+</body>
+</html> 
