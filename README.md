@@ -15,20 +15,20 @@ Discover professors that match your learning style and academic goals at San Jos
 
 Here are some screenshots of the application in action:
 
-![Personalized Search for Professors](screenshots/ss1.png)
-*Personalized Search for Professors*
+![Analytics Dashboard](https://raw.githubusercontent.com/VeedhiBhanushali/RecMyProf/main/assets/analytics.png)
+*Analytics Dashboard showing Professor Rating Distribution and Department Performance*
 
-![AI Chatbot for Quick Queries](screenshots/ss2.png)
-*AI Chatbot for Quick Queries*
+![Department Performance](https://raw.githubusercontent.com/VeedhiBhanushali/RecMyProf/main/assets/department_performance.png)
+*Department Performance Comparison with Rating and Difficulty Metrics*
 
-![Detailed Professor Insights](screenshots/ss3.png)
-*Detailed Professor Insights*
+![Rating Distribution](https://raw.githubusercontent.com/VeedhiBhanushali/RecMyProf/main/assets/rating_distribution.png)
+*Professor Rating Distribution across SJSU*
 
-![Analytics & Data Visualization](screenshots/ss4.png)
-*Analytics & Data Visualization*
+![Teaching Metrics](https://raw.githubusercontent.com/VeedhiBhanushali/RecMyProf/main/assets/teaching_metrics.png)
+*Correlation between Teaching Metrics*
 
-![Comprehensive Analytics](screenshots/ss5.png)
-*Comprehensive Analytics*
+![Student Feedback](https://raw.githubusercontent.com/VeedhiBhanushali/RecMyProf/main/assets/student_feedback.png)
+*Student Feedback Analysis and Trends*
 
 ## 🛠️ Tech Stack
 
