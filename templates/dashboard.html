@@ -36,7 +36,7 @@
         {% else %}
         <div class="stats-container animate-fade-in">
             <div class="stat-card">
-                <h3>SJSU Teaching Excellence</h3>
+                <h3>Professor Performance Overview</h3>
                 <p>Average Rating: {{ "{:.2f}".format(stats.avg_rating) }}/5.0</p>
                 <p>Average Difficulty: {{ "{:.2f}".format(stats.avg_difficulty) }}/5.0</p>
                 <p>Average Would Take Again: {{ "{:.1f}".format(stats.avg_would_take_again) }}%</p>
@@ -44,7 +44,7 @@
             </div>
 
             <div class="stat-card">
-                <h3>Academic Departments</h3>
+                <h3>Department Statistics</h3>
                 {% for dept, count in stats.departments.items() %}
                 <p>{{ dept }}: {{ count }} professors</p>
                 {% endfor %}
@@ -54,18 +54,19 @@
         <div class="visualization-container animate-fade-in">
             <div class="viz-card">
                 <h3>Professor Rating Distribution</h3>
-                <p class="viz-desc">How SJSU professors are rated across all departments</p>
+                <p class="viz-desc">Distribution of professor ratings across SJSU departments</p>
                 {{ rating_dist | safe }}
             </div>
             
             <div class="viz-card">
                 <h3>Department Performance</h3>
-                <p class="viz-desc">Compare teaching metrics across different departments</p>
+                <p class="viz-desc">Comparison of teaching metrics between departments</p>
                 {{ dept_comp | safe }}
             </div>
             
             <div class="viz-card">
-                <h3>Metric Correlations</h3>
+                <h3>Teaching Metrics Relationships</h3>
+                <p class="viz-desc">How different teaching metrics relate to each other</p>
                 {{ corr_matrix | safe }}
             </div>
         </div>
