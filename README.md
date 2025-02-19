@@ -74,7 +74,7 @@ The app will be available at http://localhost:3000
 Select Your Learning Preferences
 Choose classroom experience, grading criteria, and workload.
 Filter Professors
-Adjust by department, rating, difficulty, and “Would Take Again” percentage.
+Adjust by department, rating, difficulty, and "Would Take Again" percentage.
 Explore Professor Profiles
 View ratings, teaching styles, workload, and real student reviews.
 AI Chatbot Support
@@ -108,4 +108,25 @@ This project is licensed under the MIT License. See LICENSE for details.
 📩 Email: bhanushaliveedhi@gmail.com
 🌐 GitHub: veedhibhanushali
 🚀 Live Demo: Rec My Prof
+
+# SJSU Professor Chatbot
+
+A chatbot that provides information about SJSU professors, including:
+- Contact information
+- Office hours
+- Ratings and reviews
+- Course information
+- Research interests
+
+## Setup
+1. Clone the repository
+2. Install dependencies: `pip install -r requirements.txt`
+3. Copy `.env.example` to `.env` and fill in your API keys
+4. Run the server: `uvicorn main:app --reload`
+
+## Environment Variables
+Required environment variables:
+- OPENAI_API_KEY
+- PINECONE_API_KEY
+- PINECONE_REGION
 

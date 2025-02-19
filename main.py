@@ -11,6 +11,7 @@ from fastapi import FastAPI, Request, Response, WebSocket, WebSocketDisconnect
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 from starlette.middleware.sessions import SessionMiddleware
+from fastapi.staticfiles import StaticFiles
 
 from agent import ProfessorRaterAgent
 from langchain_core.messages import HumanMessage, AIMessage
@@ -33,6 +34,7 @@ app = FastAPI(
     description="A chatbot that helps you find professors based on your requirements using AI and Rate My Professor DB.",
 )
 app.add_middleware(SessionMiddleware, secret_key=SECRET_KEY)
+app.mount("/static", StaticFiles(directory="static"), name="static")
 templates = Jinja2Templates(directory="templates")
 agent = ProfessorRaterAgent()
 
@@ -41,13 +43,13 @@ user_sessions: Dict[str, WebSocket] = {}  # Active sessions
 chat_history: Dict[str, List[str]] = {}  # Chat history for each session
 session_timestamps: Dict[str, float] = {}  # Last active time for each session
 
-@app.get("/")
-async def get(request: Request):
+@app.get("/", response_class=HTMLResponse)
+async def get_chat(request: Request):
     """
     Serve the chat interface and manage session state.
     """
     # Update WebSocket URL to use the correct port
-    ws_url = f"ws://{request.headers.get('host', 'localhost:8001')}/chat"
+    ws_url = f"wss://{request.headers.get('host')}/chat"
     
     session_id = request.cookies.get("session_id")
     
